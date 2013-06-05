@@ -4,8 +4,8 @@ require 'rspec'
 require 'vagabond/remote'
 include Vagabond::Remote
 
-describe "Testing Apache's default landing page", :remote => :true do
-  let(:default_landing_page_copy) { "It works!" }
+describe "Testing Nginx's default landing page", :remote => :true do
+  let(:default_landing_page_copy) { "Welcome to nginx" }
 
   describe webapp(default_url) do
     it "should have a landing page" do

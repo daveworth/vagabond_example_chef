@@ -41,8 +41,20 @@ execute "apt-get update" do
   action :run
 end
 
+if FileTest.file?("/etc/init.d/apache2")
+  service "apache2" do
+    action [:stop, :disable]
+  end
+end
 package 'apache2-mpm-worker' do
+  action :remove
+end
+
+package 'nginx' do
   action :install
+end
+service "nginx" do
+  action [:enable, :start]
 end
 
 user "coder" do

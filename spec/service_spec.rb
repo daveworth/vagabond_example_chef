@@ -4,10 +4,10 @@ require 'rspec'
 require 'vagabond'
 include Vagabond
 
-describe service('stupid') do
+describe service('apache2') do
   it { should_not be_running }
 end
 
-describe service('apache2') do
+describe service('nginx') do
   it { should be_running }
 end

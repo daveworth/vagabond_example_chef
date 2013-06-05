@@ -15,8 +15,8 @@ describe port_and_service_scan, :remote => true do
   it { should_not only_have_open_ports [23, 25]          }  # disjoint set
 
   it { should have_remote_service "OpenSSH" }
-  it { should have_remote_service "Apache"  }
-  it { should_not have_remote_service "IIS" }
+  it { should_not have_remote_service "Apache" }
+  it { should have_remote_service "nginx", on_port: 80 }
 
   it { should have_remote_service     "OpenSSH",       on_port: 22 }
   it { should_not have_remote_service "CommercialSSH", on_port: 22 }
